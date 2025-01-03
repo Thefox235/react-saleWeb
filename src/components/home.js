@@ -52,7 +52,7 @@ const Home = () =>{
       const fetchProductView = async () => {
         try {
           const response = await getProductByView();
-          // console.log(response);
+          console.log(response);
           setProductViews(response); // Đảm bảo rằng response.products là một mảng
         } catch (error) {
           console.error('Có lỗi xảy ra khi lấy danh mục:', error);

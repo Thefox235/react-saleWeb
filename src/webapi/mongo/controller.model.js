@@ -482,7 +482,7 @@ async function updateById(id, body) {
         if (!pro) {
             throw new Error('Không tìm thấy sp');
         }
-        const { name, images, description, price, quantity, category, hot, viewCount, brand } = body;
+        const { name, img, description, price, quantity, category, hot, viewCount, brand } = body;
         let categoryFind = null;
         if (category) {
             categoryFind = await categoryModel.findById(category); // Sửa từ 'catagory' thành 'category'
@@ -496,7 +496,7 @@ async function updateById(id, body) {
         } : pro.category;
         const result = await productModel.findByIdAndUpdate(
             id,
-            { name, images, description, price, quantity, category: categoryUpdate, hot, viewCount, brand },
+            { name, img, description, price, quantity, category: categoryUpdate, hot, viewCount, brand },
             { new: true }
         );
         return result;
